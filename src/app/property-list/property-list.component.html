@@ -1,0 +1,18 @@
+<igx-calendar ></igx-calendar>
+<igx-grid
+  [data]="data"
+  paging="true"
+  perPage="8">
+  <igx-column field="propertyId" header="ID" dataType="number" hidden=true></igx-column>
+  <igx-column field="propertyName" header="備品名" dataType="string"></igx-column>
+  <igx-column field="isUsed" header="利用中" dataType="boolean">
+    <ng-template igxCell let-col="column" let-ri="rowIndex" let-item="item">
+      <igx-switch [checked]="item"></igx-switch>
+    </ng-template>
+  </igx-column>
+  <igx-column field="purchaseDate" header="購入日" dataType="date">
+    <ng-template igxCell let-col="column" let-ri="rowIndex" let-item="item">
+      <igx-datePicker [value]="item" locale="ja-JP" ></igx-datePicker>
+    </ng-template>
+  </igx-column>
+</igx-grid>
